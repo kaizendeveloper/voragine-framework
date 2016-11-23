@@ -1,0 +1,72 @@
+#Qui impostiamo le configurazioni di base per i siteaccess
+siteaccesses:
+  devel:
+    #Espressione regolare preferibilmente
+    host_pattern: non_e_fatto_per_web
+    file: development.yml
+
+  test:
+    #Espressione regolare preferibilmente
+    host_pattern: non_e_fatto_per_web
+    file: test.yml
+
+  prod:
+    #Espressione regolare preferibilmente
+    host_pattern: non_e_fatto_per_web
+    file: production.yml
+
+
+#------------------------------------------------------------------
+#                           SERVIZI
+#------------------------------------------------------------------
+services:
+
+  #Si incarica delle operazioni I/O sul filesystem
+  file_handler:
+    class: FileHandlerService
+    mandatory: true
+
+  #Per scrivere nei log
+  logger:
+    class: LoggerService
+    mandatory: true
+
+  #Per le connessioni ai DB tramite doctrine
+  database_registrazione:
+    class: DatabaseConnectionService
+
+  #
+  export_generator:
+    class: ExportGeneratorService\Main
+
+  name_generator:
+      class: NameGeneratorService
+
+  #Non sono sicuro se per questo progetto sarà utile un mailer
+  #Ma si incarica del invio delle mail
+  mailer:
+    class: MailerService
+
+  #Template Engine per la renderizzazione tramite tali
+  template_engine:
+    class: TemplateEngineService
+    conf_alias: twig
+
+  #Crea e salva Alias delle immagini a seconda le impostazioni YAML
+  image_handler:
+    class: ImageHandlerService\ImageHandler
+    conf_alias: image_alias_handler
+
+  http_crawler:
+    class: HttpCrawlerService
+
+  #Per tutto ciò relativo al calcolo di periodi di tempo
+  time_interval_reports:
+    class: TimeIntervalService
+    conf_alias: reports
+
+
+  #Per tutto ciò relativo al calcolo di periodi di tempo
+  time_interval:
+    class: TimeIntervalService
+    conf_alias: users_retrieval

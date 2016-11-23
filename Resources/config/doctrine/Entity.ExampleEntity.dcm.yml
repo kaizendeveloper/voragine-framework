@@ -1,0 +1,9 @@
+Entity\ExampleEntity
+    type: entity
+    table: fake_db_table
+
+    id:
+      id:
+        type: integer
+        generator:
+          strategy: AUTO

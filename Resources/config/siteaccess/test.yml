@@ -1,0 +1,38 @@
+#Configurazioni di connessione ai DB
+#---------------------------------------
+
+example_database:
+  driver:   pdo_mysql
+  host:     127.0.0.1
+  port:     3306
+  dbname:   example_db
+  user:     root
+  password: null
+  charset:  utf8mb4
+
+#Per il servizio che calcola gli intervali di tempo
+#per le estrazioni da DB
+#---------------------------------------------------
+  users_retrieval:
+    days: 15
+    minutes: 0
+    seconds: 1
+
+#Configurazioni di scrittura dei file risultanti
+#------------------------------------------------
+
+#  AAAA a quattro digiti indica l'engine di scrivere l'anno in formato lungo
+#  AA a due digiti indica l'engine di scrivere l'anno in formato corto
+#  Ad esempio: 2016 oppure 16 in formato corto
+#  MM in maiuscolo indica l'engine di scrivere il mese con lo zero davanti
+#  mm in minuscolo indica l'engine di scrivere il mese senza lo zero davanti
+#  DD a due digiti indica l'engine di scrivere il giorno con lo zero davanti
+#  dd a due digiti indica l'engine di scrivere il giorno senza lo zero davanti
+
+export_generator:
+  filename_format: gioia-newsletter-export-AAAA-MM-DD
+  feed_format:
+    - csv
+  csv_format:
+    delimiter: "\""
+    separator: ","
