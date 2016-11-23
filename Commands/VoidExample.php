@@ -6,7 +6,7 @@
  *
  */
 
-namespace Engine\Commands;
+namespace Voragine\Commands;
 
 
 
@@ -21,7 +21,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 
 //Namespace necessari per avviare l'applicazione secondo il caso
-use Engine\Kernel;
+use Voragine\Kernel;
 
 class VoidExample extends Command {
 
@@ -78,7 +78,7 @@ EOT;
         //Lanciamo il wrapper di questo Command
 
         //Il grande Executor Tassadar ancora vive!
-        $tassadar = new Kernel\MainExecutor($environment);
+        $tassadar = new VoidExample($environment);
 
 
         //Cominciamo a processare

@@ -28,7 +28,7 @@ require_once APP_BASEDIR . 'vendor/autoload.php';
 use Symfony\Component\Console\Application;
 
 //Access to command namespace
-use Engine\Commands;
+use Voragine\Commands;
 
 $app = new Application();
 $app->addCommands(array(new Commands\VoidExample()));
