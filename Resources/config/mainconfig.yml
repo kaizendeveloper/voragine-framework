@@ -26,21 +26,28 @@ services:
     class: FileHandlerService
     mandatory: true
 
+  #Si incarica di salvare in cache qualche informazione
+  #Dipende dal servizio "file_handler"
+  file_caching:
+    class: TimeIntervalService
+    conf_alias: file_handler
+
   #Per scrivere nei log
   logger:
     class: LoggerService
     mandatory: true
 
+  #Gestisce la visualizzazione degli errori - utile per sviluppo e test -
+  #non dev'essere messo in prod
+  error_handler:
+    class: ErrorDebugHandlerService
+    conf_alias: error_debug_handler
+    mandatory: true
+
   #Per le connessioni ai DB tramite doctrine
-  database_registrazione:
+  db_connection:
     class: DatabaseConnectionService
-
-  #
-  export_generator:
-    class: ExportGeneratorService\Main
-
-  name_generator:
-      class: NameGeneratorService
+    conf_alias: database
 
   #Non sono sicuro se per questo progetto sarà utile un mailer
   #Ma si incarica del invio delle mail
@@ -57,16 +64,17 @@ services:
     class: ImageHandlerService\ImageHandler
     conf_alias: image_alias_handler
 
-  http_crawler:
-    class: HttpCrawlerService
+  #Si incarica del routing dell'applicazione
+  router:
+    class: RouterService
+    mandatory: true
 
-  #Per tutto ciò relativo al calcolo di periodi di tempo
-  time_interval_reports:
-    class: TimeIntervalService
-    conf_alias: reports
-
+  #Gestisce i controller dell'applicazione
+  controller_handler:
+    class: ControllerResolverService
+    mandatory: true
 
   #Per tutto ciò relativo al calcolo di periodi di tempo
   time_interval:
     class: TimeIntervalService
-    conf_alias: users_retrieval
+    conf_alias: fetch_articles_using
