@@ -4,7 +4,7 @@
  *
  * @authors: Miguel Delli Carpini
  */
-namespace Voragine\Kernel;
+namespace Voragine\Main;
 
 //Dependencies
 //---------------------------
@@ -24,10 +24,10 @@ class ExampleExecutor extends ExecutorDefinition
 
 
         //CLI OUTPUT
-        $this->output->writeln("  <info>Main application point</info>\r\n");
+        $this->output->writeln("\r\n\r\n<info>Main application point</info>\r\n");
 
         //Console output
-        $this->output->writeln("\r\n\r\n<info>Exiting now</info>\r\n");
+        $this->output->writeln("\r\n<info>Exiting now</info>\r\n\r\n");
 
         
     }

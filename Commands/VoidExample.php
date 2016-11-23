@@ -45,7 +45,7 @@ Oppure, nel modo breve
 EOT;
 
         $this->setName("begin")
-            ->setDescription("Executes the example command\r\n               write begin -h for a briefing of the accepted commands.\r\n")
+            ->setDescription("Executes the example command\r\n          write begin -h for a briefing of the accepted commands.\r\n")
             ->setDefinition(new InputDefinition(array(
                 new InputOption('env', 'e', InputOption::VALUE_REQUIRED, 'Specifies the environment of execution', $environment)
             )))

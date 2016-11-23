@@ -5,7 +5,7 @@
  * @authors: Miguel Delli Carpini
  *
  */
-namespace Voragine\Kernel;
+namespace Voragine\Main;
 
 //Accediamo al namespace dei configuratori del kernel
 use Voragine\Kernel\Services;
