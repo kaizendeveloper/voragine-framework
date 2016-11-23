@@ -3,7 +3,7 @@
 /**
  * Punto di inizio
  * 
- * @authors: Miguel Delli Carpini, Matteo Scirea, Javier Jara
+ * @authors: Miguel Delli Carpini
  */
 
 //Solo fatal error
@@ -28,13 +28,13 @@ define('APP_BASEDIR', __DIR__ . '/../');
 //----------
 
 //Usiamo i comandi di Elle4Engine
-use Engine\Kernel\MainExecutor;
+use Voragine\Main\WebWrapper;
 
 
 //Lanciamo il wrapper dell'applicazione vero e proprio
 
 //Il grande Executor Tassadar ancora vive!
-$tassadar = new MainExecutor();
+$tassadar = new WebWrapper\WebExecutor();
 
 $tassadar->mainLoop();
 
